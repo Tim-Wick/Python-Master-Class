@@ -1,4 +1,4 @@
-# Python-Master-Class
+# python_master_class
 
 Repo for code used in Udacity Complete Python Master Class.
 
