@@ -1,0 +1,42 @@
+locations = {0: "You're at home",
+             1: "You're at Road",
+             2: "You're at Hill",
+             3: "You're at Building",
+             4: "You're at Valley",
+             5: "You're at Forest"}
+
+directions = {
+    0: {"Q": 0},
+    1: {"E": 3, "N": 5, "S": 4, "Q": 0},
+    2: {"N": 5, "Q": 0},
+    3: {"W": 1, "Q": 0},
+    4: {"N": 1, "W": 2, "Q": 0},
+    5: {"W": 2, "S": 1, "Q": 0}
+}
+
+possible_directions = {
+    "North": "N",
+    "East": "E",
+    "South": "S",
+    "West": "W",
+    "Quit": "Q"
+}
+
+loc = 1
+while True:
+    available_exits = ", ".join(directions[loc].keys())
+
+    print(locations[loc])
+
+    if loc == 0:
+        break
+
+    travel = input("Available exits are " + available_exits + " ").capitalize()
+    print()
+
+    if travel in possible_directions:
+        travel = possible_directions[travel]
+    if travel in directions[loc]:
+        loc = directions[loc][travel]
+    else:
+        print("You cannot go in that direction")
