@@ -1,0 +1,36 @@
+## Not the best implementation but it works. Should use while loop to continue to ask until user exits ##
+
+import datetime
+import pytz
+
+
+chosen_zone = int(input("Chose a timezone using number keys\n"
+      "1: Africa/Windhoek\n"
+      "2: America/Winnipeg\n"
+      "3: Europe/Stockholm\n"
+      "4: Pacific/Honolulu\n"
+      "5: Pacific/Wake\n"
+      "6: US/Alaska\n"
+      "7: US/Central\n"
+      "8: US/Mountain\n"
+      "9: US/Pacific\n"))
+
+available_zones = {1: "Africa/Windhoek",
+                    2: "America/Winnipeg",
+                    3: "Europe/Stockholm",
+                    4: "Pacific/Honolulu",
+                    5: "Pacific/Wake",
+                    6: "US/Alaska",
+                    7: "US/Central",
+                    8: "US/Mountain",
+                    9: "US/Pacific"}
+
+if chosen_zone in available_zones:
+    tz_to_display = pytz.timezone(available_zones[chosen_zone])
+    timezone = datetime.datetime.now(tz=tz_to_display)
+    print("The time in {0} is {1}".format(available_zones[chosen_zone], timezone))
+    print("Your local time is {}".format(datetime.datetime.now()))
+    print("UTC time is {}".format(datetime.datetime.utcnow()))
+
+else:
+    print("Please select again")
